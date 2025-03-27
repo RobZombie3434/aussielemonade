@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="img/TanTan-Icon.png">
+        <title>TanTan - Your Email Assisstant</title>
+      
+        <link rel="stylesheet" href="style.css">
+      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+      
+      
+    </head>
+    <body>
+  
+    <nav>
+      <!-- Logo -->
+      <div class="logo">
+        <img src="img/TanTan-Web-Logo.png" alt="Tantan Logo" />
+      </div>
+
+      <!-- Burger Menu -->
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+      
+      <header>
+      <h1 class="fluid">TanTan Does<br />A Lot.</h1>
+      </header>
+    <main>
+      <section class="content fluid">
+        <h2><span aria-hidden="true">Tantan can&nbsp;</span>
+          <span class="sr-only">you can ship things.</span>
+        </h2>
+        <ul aria-hidden="true" style="--count: 22">
+          <li style="--i: 0">summarise.</li>
+          <li style="--i: 1">simplify.</li>
+          <li style="--i: 2">trim.</li>
+          <li style="--i: 3">skim.</li>
+          <li style="--i: 4">catch.</li>
+          <li style="--i: 5">filter.</li>
+          <li style="--i: 6">highlight.</li>
+          <li style="--i: 7">clear.</li>
+          <li style="--i: 8">refocus.</li>
+          <li style="--i: 9">deliver.</li>
+          <li style="--i: 10">prioritise.</li>
+          <li style="--i: 11">declutter.</li>
+          <li style="--i: 12">digest.</li>
+          <li style="--i: 13">sort.</li>
+          <li style="--i: 14">organise.</li>
+          <li style="--i: 15">focus.</li>
+          <li style="--i: 21">do the most.</li>
+        </ul>
+      </section>
+      
+      
+      
+      <section>
+        <h2 class="fluid">What Is It?</h2>
+      </section>
+      
+      <div class="fade-section">
+        <div class="content-extended">
+          <div class="text">
+           <h2>Tantan stays on top of things when <br>you can't</h2>
+            <p>You dont always have the time to go through hundred of emails when you've missed a day at the office, or spent 8 hours shmoozing that new client on the golf course. Tantan summarizes your most important emails into a simple daily list. See your inbox with fresh focus and minimal distractions. <br>Focus on what matters... Let Tantan manage the rest.</p>
+          </div>
+          <div class="image-block" id="image-block">
+            <img src="img/testMailer-Image-2.jpg" alt="Inbox Summary" />
+            <div class="blocks-overlay"></div>
+          </div>
+        </div>
+      </div>
+
+   
+      
+      <div class="comingsoon">
+        <h2>Coming Soon!</h2>
+      </div>
+        
+      <div class="icon-section">
+        <h4>No Matter Your Preferred Workspace, Tantan can manage!</h4>
+
+        <div class="icon-row">
+          <div class="icon">
+            <img src="img/gmail.png" alt="Gmail">
+          </div>
+          <div class="icon">
+            <img src="img/outlook.png" alt="Outlook">
+          </div>
+          <div class="icon">
+            <img src="img/imap.png" alt="IMAP Email">
+          </div>
+        </div>
+
+        <p class="caption">Stay organized. Stay focused. Stay free.</p>
+      </div>
+
+      <div class="mailing-list">
+        <h2>Join the Tantan Waitlist</h2>
+        <p>Be the first to know when we launch.</p>
+
+        <form id="waitlistForm">
+          <input type="text" name="firstName" placeholder="First Name" required>
+          <input type="text" name="lastName" placeholder="Last Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <button type="submit">Notify Me</button>
+        </form>
+
+        <p id="formMessage"></p>
+      </div>
+
+      
+    </main>
+    <footer>
+      
+       <div class="footer-content">
+        <p>&copy; 2025 Tantan. All rights reserved.</p>
+        <nav class="footer-nav">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Use</a>
+          <a href="#disclaimer">Disclaimer</a>
+        </nav>
+      </div>
+      
+      
+    React Media 2025
+    </footer>
+
+   
+       <script src="scripts.js"></script> 
+        <script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+
+        // Animate image blocks
+        const overlay = document.querySelector(".blocks-overlay");
+        if (overlay && overlay.children.length === 0) {
+          const totalBlocks = 24;
+          for (let i = 0; i < totalBlocks; i++) {
+            const block = document.createElement("div");
+            block.style.setProperty("--i", i);
+            overlay.appendChild(block);
+          }
+        }
+
+        observer.unobserve(entry.target); // Animate only once
+      }
+    });
+  });
+
+  observer.observe(document.querySelector(".fade-section"));
+</script>
+      
+      <script>
+        import { Pane } from 'https://cdn.skypack.dev/tweakpane@4.0.4'
+
+        const config = {
+          theme: 'system',
+        }
+
+        const ctrl = new Pane({
+          title: 'Config',
+          expanded: false,
+        })
+
+        const update = () => {
+          document.documentElement.dataset.theme = config.theme
+        }
+
+        const sync = (event) => {
+          if (
+            !document.startViewTransition ||
+            event.target.controller.view.labelElement.innerText !== 'Theme'
+          )
+            return update()
+          document.startViewTransition(() => update())
+        }
+
+        ctrl.addBinding(config, 'theme', {
+          label: 'Theme',
+          options: {
+            System: 'system',
+            Light: 'light',
+            Dark: 'dark',
+          },
+        })
+
+        ctrl.on('change', sync)
+        update()
+      </script>
+      
+    
+    </body>
+    
+   
+  
+</html>
